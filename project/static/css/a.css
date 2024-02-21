@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  background: purple;
+  height: 80px;
+}
+.content {
+  width: 80%;
+  background: blue;
+  height: 800px;
+  float: left;
+}
+.sidebar {
+  width: 20%;
+  background: green;
+  height: 100px;
+  float: right;
+}
+.sidebar.fixed {
+  position: fixed;
+  right: 50%;
+  margin-right: -50%;
+}
+.footer {
+  width: 100%;
+  background: gray;
+  height: 500px;
+  clear: both;
+}
