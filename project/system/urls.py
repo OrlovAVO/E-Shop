@@ -16,17 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 
-from .settings import DEBUG
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls', namespace='app')),
     path('catalog/', include('goods.urls', namespace='catalog')),
+    path('', include('app.urls', namespace='app')),
 
 ]
 
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
+
     ]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

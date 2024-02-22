@@ -43,31 +43,41 @@
                         </div>
 
 
-
+                    {% for product in goods %}
                         <!-- Карта товара -->
                         <div class="col-lg-4 col-md-6 p-4">
                             <div class="card border-primary rounded custom-shadow">
-                                <img src=".{% static product.image %}" class="card-img-top" alt="...">
+                                {% if product.image  %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150" height="190">
+                                {% else %}
+                                    <img src="{% static 'site_media/icons/image_not_found.jpeg' %}"
+                                         alt="{{ product.name }}" width="150" height="190">
+                                {% endif %}
                                 <div class="card-body">
                                     <a href="../goods/product.html">
-                                        <p class="card-title">{{ product.name }}/p>
+                                        <p class="card-title">{{ product.name }}</p>
                                     </a>
                                     <p class="card-text text-truncate">{{ product.description }}</p>
-                                    <p class="product_id">id: 02265</p>
+                                    <p class="product_id">Артикул: {{ product.display_id }}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p><s>{{ product.price }}</s></p>
-                                        <p><strong>90000</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
-                                        <!-- <p><strong>10000.00 </strong></p> -->
+                                        <!--Блок цены и скидки-->
+                                        {% if product.discount %}
+                                            <p><s>{{ product.price }}</s></p>
+                                            <p><strong>{{ product.sell_price }}</strong></p>
+                                            <span class="badge bg-warning text-dark">Скидка: {{ product.discount }}/span>
+                                        {% else %}
+                                        <p><strong>{{product.price}} </strong></p>
+                                        {% endif %}
+
                                         <a href="#" class="btn add-to-cart">
-                                            <img class="mx-1" src="{% static ' ' %}" alt="Catalog Icon"
+                                            <img class="mx-1" src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Catalog Icon"
                                                 width="32" height="32">
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    {% endfor %}
 
                     </div>
                     <!-- Пагинация -->
@@ -75,13 +85,13 @@
                         <ul class="pagination justify-content-center my-4">
                             <div class="custom-shadow d-flex">
                                 <li class="page-item disabled">
-                                  <a class="page-link">Предыдущий</a>
+                                  <a class="page-link">Предыдущая</a>
                                 </li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item">
-                                  <a class="page-link" href="#">Следующий</a>
+                                  <a class="page-link" href="#">Следующая</a>
                                 </li>
                             </div>
                         </ul>

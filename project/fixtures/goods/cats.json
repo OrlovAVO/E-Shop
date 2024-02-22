@@ -1,0 +1,39 @@
+[
+  {
+    "model": "goods.categories",
+    "pk": 2,
+    "fields": {
+      "name": "Все товары",
+      "slug": "vse-tovary"}},
+  {
+
+    "model": "goods.categories",
+    "pk": 3,
+    "fields": {
+      "name": "Смартфоны",
+      "slug": "smartfony"}},
+  {
+    "model": "goods.categories",
+    "pk": 4,
+    "fields": {
+      "name": "Мониторы, ТВ",
+      "slug": "monitory-tv"}},
+  {
+    "model": "goods.categories",
+    "pk": 5,
+    "fields": {
+      "name": "ПК, ноутбуки",
+      "slug": "pk-noutbuki"}},
+  {
+    "model": "goods.categories",
+    "pk": 6,
+    "fields": {
+      "name": "Бытовая техника",
+      "slug": "bytovaya-tehnika"}},
+  {
+    "model": "goods.categories",
+    "pk": 7,
+    "fields": {
+      "name": "Аксессуары",
+      "slug": "aksessuary"}}
+]
