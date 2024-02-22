@@ -1,0 +1,11 @@
+.venv/
+venv/
+myenv/
+.myenv/
+__pycache__/
+pytest/
+
+#django
+.idea
+db.sqlite3
+media/
