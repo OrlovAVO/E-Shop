@@ -1,6 +1,7 @@
 {% load static %}
+{% load tags %}
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 
 <html lang="en">
 
@@ -11,9 +12,9 @@
     <link rel="stylesheet" href="deps/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="deps/css/my_css.css">
     <!-- Стиль footer-a для главной страницы -->
-    { % block css %}
+<!--    { % block css %}-->
 
-    { % endblock %}
+<!--    { % endblock %}-->
     <!-- Favicons for different platforms -->
     <link rel="apple-touch-icon" sizes="180x180" href="deps/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="deps/favicon/favicon-32x32.png">
@@ -89,8 +90,9 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% tags_categories as categories %}
                         {% for category in categories %}
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index'%}">{{category.name}}</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' category.slug%}">{{category.name}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
