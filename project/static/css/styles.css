@@ -7,13 +7,13 @@
   width: 80%;
   background: blue;
   height: 800px;
-  float: left;
+  float: right;
 }
 .sidebar {
   width: 20%;
   background: green;
   height: 100px;
-  float: right;
+  float: left;
 }
 .sidebar.fixed {
   position: fixed;

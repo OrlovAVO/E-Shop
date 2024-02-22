@@ -1,5 +1,22 @@
-<div class="my-5 pt-5 px-2 pb-2 bg-white custom-shadow rounded">
-    <h2 class="m-2"><strong>О нас</strong></h2>
-    <p class="m-2" style="font-size: 1.2rem;">Наша цель - сделать простым доступ к огромному количеству качественных и недорогих товаров,
-        предоставляя лучший сервис.</p>
-</div>
+{% extends "app/basic.html" %}
+
+{% load static %}
+
+<!--{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %} -->
+
+{% block content %}
+    <h1 class="mt-5 pt-5"><strong>{{ content }} </strong></h1>
+    <p>{{ text_on_page}}</p>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; 2024 E-Shop</p>
+        </div>
+    </footer>
+{% endblock %}
+
+

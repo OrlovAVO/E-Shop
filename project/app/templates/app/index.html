@@ -1,0 +1,19 @@
+{% extends "app/basic.html" %}
+
+{% load static %}
+
+<!--{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}-->
+
+{% block content %}
+    <h1 class="mt-5 pt-5"><strong>{{ content }} </strong></h1>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; 2024 E-Shop</p>
+        </div>
+    </footer>
+{% endblock %}
