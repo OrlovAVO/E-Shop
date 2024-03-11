@@ -1,1 +1,120 @@
-[{"model": "goods.categories", "pk": 2, "fields": {"name": "Все товары", "slug": "vse-tovary"}}, {"model": "goods.categories", "pk": 3, "fields": {"name": "Смартфоны", "slug": "smartfony"}}, {"model": "goods.categories", "pk": 4, "fields": {"name": "Мониторы, ТВ", "slug": "monitory-tv"}}, {"model": "goods.categories", "pk": 5, "fields": {"name": "ПК, ноутбуки", "slug": "pk-noutbuki"}}, {"model": "goods.categories", "pk": 6, "fields": {"name": "Бытовая техника", "slug": "bytovaya-tehnika"}}, {"model": "goods.categories", "pk": 7, "fields": {"name": "Аксессуары", "slug": "aksessuary"}}]
+[
+{
+  "model": "goods.categories",
+  "pk": 2,
+  "fields": {
+    "name": "Все товары",
+    "slug": "vse-tovary"
+  }
+},
+{
+  "model": "goods.categories",
+  "pk": 3,
+  "fields": {
+    "name": "Смартфоны",
+    "slug": "smartfony"
+  }
+},
+{
+  "model": "goods.categories",
+  "pk": 4,
+  "fields": {
+    "name": "Мониторы, ТВ",
+    "slug": "monitory-tv"
+  }
+},
+{
+  "model": "goods.categories",
+  "pk": 5,
+  "fields": {
+    "name": "ПК, ноутбуки",
+    "slug": "pk-noutbuki"
+  }
+},
+{
+  "model": "goods.categories",
+  "pk": 6,
+  "fields": {
+    "name": "Бытовая техника",
+    "slug": "bytovaya-tehnika"
+  }
+},
+{
+  "model": "goods.categories",
+  "pk": 7,
+  "fields": {
+    "name": "Аксессуары",
+    "slug": "aksessuary"
+  }
+},
+{
+  "model": "goods.products",
+  "pk": 1,
+  "fields": {
+    "name": "55\" (138 см) Телевизор LED Xiaomi MI TV A2 55 черный",
+    "slug": "55-138-sm-televizor-led-xiaomi-mi-tv-a2-55-chernyj",
+    "description": "Диагональ: 55\"\r\nРазрешение HD: 4K UHD\r\nЧастота обновления экрана: 60 Гц\r\nПлатформа Smart TV: Android TV\r\nЭкосистема умного дома: Google Home\r\nТехнология экрана: HDR, LED\r\nТип матрицы экрана: VA\r\nЯркость: 300 кд/м²\r\nРазъемы и интерфейсы: Композитный видеовход, вход HDMI, вход HDMI x 3, выход на наушники, USB Type-A, Ethernet - RJ-45, вы…\r\nБеспроводные интерфейсы: Wi-Fi, Bluetooth, Miracast, Chromecast\r\nМощность звука: 24 Вт\r\nГод создания модели: 2022\r\nОсобенности: Голосовое управление, Time Shift, DLNA",
+    "image": "goods_images/55-138-sm-televizor-led-xiaomi-mi-tv-a2-55-chernyj-4k-ultrahd-3840x2160-dl_aALRvbL.webp",
+    "price": "36999.00",
+    "discount": "5.00",
+    "quantity": 10,
+    "category": 4
+  }
+},
+{
+  "model": "goods.products",
+  "pk": 2,
+  "fields": {
+    "name": "Проводные наушники Fifine H6 черный",
+    "slug": "provodnye-naushniki-fifine-h6-chernyj",
+    "description": "Игровая гарнитура: Да\r\nТип наушников: Полноразмерные\r\nПодключение: С проводом\r\nРазъем: USB\r\nКонструкция: Складная конструкция, регулятор громкости, мягкие амбушюры, сменные амбушюры, витой шнур, отсоединяемый кабель, RGB подсветка\r\nФункции микрофона: Съемный микрофон, микрофон с шумоподавлением, выключение микрофона\r\nВес: 330 г\r\nКоличество излучателей: 1\r\nЧастота воспроизведения: 20-20000 Гц",
+    "image": "goods_images/provodnye-naushniki-fifine-h6-chernyj-71-virtual-ohvatyvayushie-20-gc-2000_taNl3Ir.webp",
+    "price": "3299.00",
+    "discount": "0.00",
+    "quantity": 10,
+    "category": 7
+  }
+},
+{
+  "model": "goods.products",
+  "pk": 3,
+  "fields": {
+    "name": "Холодильник однокамерный NORDFROST NR 402 R красный",
+    "slug": "holodilnik-odnokamernyj-nordfrost-nr-402-r-krasnyj",
+    "description": "Количество камер: однокамерный\r\nОбъем: общий 60 л; холодильной камеры 49 л\r\nМорозильная камера: морозильная камера отсутствует, размораживание морозильная камера отсутствует\r\nКоличество компрессоров: один\r\nКласс энергопотребления: A+\r\nРазмеры (ШхВхГ): 50 х 52.5 х 48 см\r\nЦвет: красный",
+    "image": "goods_images/holodilnik-odnokamernyj-nordfrost-nr-402-r-krasnyj_oaYXe55.webp",
+    "price": "11700.00",
+    "discount": "10.00",
+    "quantity": 10,
+    "category": 6
+  }
+},
+{
+  "model": "goods.products",
+  "pk": 4,
+  "fields": {
+    "name": "17.3\" Ноутбук MSI Katana B12VFK-463XRU черный",
+    "slug": "173-noutbuk-msi-katana-b12vfk-463xru-chernyj",
+    "description": "Диагональ экрана: 17.3 \"\r\nРазрешение экрана: 1920x1080\r\nЧастота обновления экрана: 144 Гц\r\nТип матрицы экрана: IPS\r\nПроцессор: Intel Core i5 12450H\r\nОперативная память: 16 ГБ",
+    "image": "goods_images/173-noutbuk-msi-katana-17-b11ucx-897xru-chernyj_yN6uYUa.webp",
+    "price": "99999.00",
+    "discount": "5.00",
+    "quantity": 10,
+    "category": 5
+  }
+},
+{
+  "model": "goods.products",
+  "pk": 5,
+  "fields": {
+    "name": "6.73\" Смартфон Xiaomi 13 Ultra 512 ГБ черный",
+    "slug": "673-smartfon-xiaomi-13-ultra-512-gb-chernyj",
+    "description": "Размеры: 74.66 x 162.18 x 9.06 мм\r\nВес: 227 г\r\nSoC: Qualcomm Snapdragon 8 Gen 2\r\nПроцессор: 1x 3.2 GHz Cortex-X2, 4x 2.8 GHz Cortex-A710, 3x 2.0 GHz Cortex-A510\r\nГрафический процессор: Qualcomm Adreno 740\r\nОперативная память: 12 ГБ, 16 ГБ, 8533 МГц\r\nВстроенная память: 256 ГБ, 512 ГБ, 1024 ГБ\r\nЭкран: 6.73 in, C7 AMOLED, 1440 x 3200 пикселей, 30 бит\r\nАккумулятор: 5000 мА·ч, Li-polymer (Литий-полимерный)\r\nOперационная система: MIUI 14 (Android 13)\r\nКамера: 8190 x 6120 пикселей, 7680 x 4320 пикселей, 30 кадров/сек",
+    "image": "goods_images/673-smartfon-xiaomi-13-ultra-512-gb-chernyj.jpg_wT8m9pR.webp",
+    "price": "67999.00",
+    "discount": "7.00",
+    "quantity": 10,
+    "category": 3
+  }
+}
+]

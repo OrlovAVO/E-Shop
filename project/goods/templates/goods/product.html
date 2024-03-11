@@ -1,4 +1,4 @@
-{% extends "app/basic.html" %}
+{% extends "basic.html" %}
 {% load static %}
 
 
@@ -10,7 +10,7 @@
                                 <!-- Товар -->
                                 <div class="col-md-4">
                                     <img src="{{ product.image.url }}"
-                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1" width="150" height="190">
                                 </div>
                                 <div class="col-md-4 ">
                                     <p class="product_id mt-3">Артикул: {{ product.display_id }}</p>
