@@ -7,15 +7,15 @@
 {% endblock %}-->
 
 {% block content %}
-    <h1 class="mt-5 pt-5"><strong>{{ content }} </strong></h1>
+    <h1><strong>{{ content }} </strong></h1>
 {% endblock %}
 
 {% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; 2024 E-Shop</p>
-            <li><a class="dropdown-item  text-white" href="#">Контактная информация</a></li>
-            <li><a class="dropdown-item  text-white" href="{% url 'app:about' %}">О нас</a></li>
+    <footer>
+        <div>
+            <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
+            <li><a href="{% url 'app:about' %}">О нас</a></li>
+            <p>Copyright &copy; 2024 E-Shop</p>
         </div>
     </footer>
 {% endblock %}

@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 
 def index(request):
-
     context = {
         'title': 'E-Shop - Главная',
         'content': 'Магазин электротехники - E-Shop',
@@ -19,3 +18,21 @@ def about(request):
                         'предоставляя лучший сервис'
     }
     return render(request, 'app/about.html', context)
+
+
+def delivery(request):
+    context = {
+        'title': 'E-Shop - Доставка и оплата',
+        'content': 'Доставка и оплата',
+        'text_on_page': 'Доставка и оплата'
+    }
+    return render(request, 'app/delivery.html', context)
+
+
+def contacts(request):
+    context = {
+        'title': 'E-Shop -  Контакты',
+        'content': 'Контакты',
+        'text_on_page': 'Контакты'
+    }
+    return render(request, 'app/contacts.html', context)
