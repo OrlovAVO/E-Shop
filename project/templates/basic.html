@@ -1,5 +1,8 @@
 {% load static %}
 {% load tags %}
+{% load carts_tag %}
+
+{% user_carts request as carts %}
 
 <!--<!DOCTYPE html>-->
 
@@ -7,14 +10,16 @@
 
 <body>
     <header>
-                <a href="{% url 'app:index' %}">E-Shop</a>
+                    <div class="logo">
+                        <a href="{% url 'app:index' %}" ><img src='site_media/icons/catalog-icon.svg' alt=""/>E-Shop</a>
+                    </div>
                     <form role="search" action="{% url 'catalog:search'%}" method="get" >
                         <input type="search" name="q" placeholder="Поиск товара" aria-label="Search">
                         <button type="submit">Поиск</button>
                     </form>
                         <div class="nav">
                             <li> <a  href="{% url 'app:delivery' %}">Доставка и оплата</a> </li>
-                            <li> <a  href="{% url 'users:users_cart'%}">Корзина</a> </li>
+                            <li> <a  href="{% url 'users:users_cart'%}">Корзина ({{ carts.total_quantity }}) </a> </li>
                         </div>
                         {% if not user.is_authenticated %}
                             <li>

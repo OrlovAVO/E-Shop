@@ -18,10 +18,10 @@
                             </div>
                             <!-- Описание товара -->
                             <div>
-                                <p>Цена: <strong> {{ product.sell_price}}</strong></p>
+                                <p>Цена: <strong> {{ product.sell_price}} ₽</strong></p>
                                 <h5>{{ product.name }}</h5>
                                 <p> {{ product.description }}</p>
-                                <a href="{% url 'cart:cart_add' product.slug %}" class="btn btn-dark add-to-cart">Добавить в корзину</a>
+                                <a href="{% url 'cart:cart_add' product.slug %}" >Добавить в корзину</a>
                             </div>
                         </div>
                     </div>
