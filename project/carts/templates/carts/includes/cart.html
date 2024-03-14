@@ -1,7 +1,8 @@
 {% load static %}
 {% load carts_tag %}
-
-{% user_carts request as carts %}
+{% if user.is_authenticated %}
+    {% user_carts request as carts %}
+{% endif %}
 
 {% block content %}
     <div>
@@ -21,17 +22,17 @@
                                 <input type="text" value="{{ cart.quantity }}"
                                     readonly>
                                 <span>
-                                    <button type="button"
+                                    <button type="button" class="btn btn-dark btn-sm increment"
                                         data-cart-id="" data-cart-change-url="">+</button>
                                 </span>
                             </div>
                         </div>
                         <div>
-                            <p>x {{ cart.product.sell_price }} = </p>
+                            <p>x {{ cart.product.sell_price }} ₽ = </p>
                         </div>
-                        <div><strong> {{ cart.products_price }}₽</strong> </div>
+                        <div><strong> {{ cart.products_price }} ₽</strong> </div>
                         <div>
-                            <a href="{% url 'cart:cart_remove' 1%}" data-cart-id="">
+                            <a href="{% url 'cart:cart_remove' cart.id %}" data-cart-id="">
                                 <img src="{% static 'site_media/icons/delete_icon.svg' %}"
                                     alt="Catalog Icon" width="16" height="16">
                             </a>
@@ -43,8 +44,7 @@
     </div>
     <div>
         <div>
-            <p>Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
-            <h4><strong> {{ carts.total_price }}</strong></h4>
+            <p>Итого <strong>{{ carts.total_quantity }}</strong> товар(-а, -ов) на сумму: <strong> {{ carts.total_price }} ₽</strong> </p>
         </div>
     </div>
 {% endblock %}
