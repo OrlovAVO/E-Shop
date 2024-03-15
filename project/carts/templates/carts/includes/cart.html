@@ -1,8 +1,6 @@
 {% load static %}
 {% load carts_tag %}
-{% if user.is_authenticated %}
-    {% user_carts request as carts %}
-{% endif %}
+
 
 {% block content %}
     <div>
@@ -15,17 +13,18 @@
                     <div>
                         <div>
                             <div>
-                                <span>
-                                    <button type="button"
-                                        data-cart-id="" data-cart-change-url="">-</button>
-                                </span>
-                                <input type="text" value="{{ cart.quantity }}"
-                                    readonly>
-                                <span>
-                                    <button type="button" class="btn btn-dark btn-sm increment"
-                                        data-cart-id="" data-cart-change-url="">+</button>
-                                </span>
-                            </div>
+                                <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="remove">
+                                    <button type="submit">-</button>
+                                </form>
+                                <input type="text" value="{{ cart.quantity }}" readonly>
+                                <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="add">
+                                    <button type="submit">+</button>
+                                </form>
+                                                            </div>
                         </div>
                         <div>
                             <p>x {{ cart.product.sell_price }} ₽ = </p>
@@ -48,6 +47,3 @@
         </div>
     </div>
 {% endblock %}
-
-
-
