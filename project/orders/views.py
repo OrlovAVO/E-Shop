@@ -39,19 +39,20 @@ def create_order(request):
                                                        в наличии - {product.quantity}')
                                 return redirect(request.META['HTTP_REFERER'])
 
-                            OrderItem.objects.create(
-                                order=order,
-                                product=product,
-                                name=name,
-                                price=price,
-                                quantity=quantity,
-                            )
-                            product.quantity -= quantity
-                            product.save()
+                            else:
+                                OrderItem.objects.create(
+                                    order=order,
+                                    product=product,
+                                    name=name,
+                                    price=price,
+                                    quantity=quantity,
+                                )
+                                product.quantity -= quantity
+                                product.save()
 
-                        cart_items.delete()
+                            cart_items.delete()
 
-                        return redirect('user:profile')
+                            return redirect('user:profile')
             except ValidationError as e:
                 messages.success(request, str(e))
                 return redirect(request.META['HTTP_REFERER'])

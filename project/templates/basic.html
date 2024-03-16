@@ -32,7 +32,11 @@
                             <a class="nav_enjoy" href="{% url 'users:login' %}">Войти</a>
                             </li>
                         {% else %}
-                        <li><a href="{% url 'users:profile' %}">Личный кабинет</a>
+                        <li><a href="{% url 'users:profile' %}">Личный кабинет
+
+                            ({{ request.user.username }})
+
+                            </a>
                             {% if user.is_admin or user.is_staff %}
                         <li><a href="{% url 'admin:index'%}">Админстративная панель</a></li>
                             {% endif %}
@@ -57,8 +61,6 @@
         <div>
             <div>
                 <div>
-                    <!-- Пустой блок на Ваше усмотрение -->
-                    <!-- Контент на странице -->
                     {% block content %}
 
                     {% endblock %}
@@ -67,9 +69,6 @@
         </div>
     </section>
     {% block footer %}
-
-
-
 
     {% endblock %}
 
