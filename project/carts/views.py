@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, get_object_or_404
 
 from carts.models import Cart
 from goods.models import Products
 
 
+@login_required()
 def cart_add(request, product_slug):
     product = Products.objects.get(slug=product_slug)
 
@@ -30,7 +32,7 @@ def cart_remove(request, cart_id):
 
 def cart_change(request, product_slug):
     if request.method == 'POST':
-        action = request.POST.get("action")  # Получение значения action из запроса
+        action = request.POST.get("action")
 
         cart_item = get_object_or_404(Cart, product__slug=product_slug)
 
@@ -38,7 +40,7 @@ def cart_change(request, product_slug):
             cart_item.quantity += 1
             cart_item.save()
 
-        elif action == 'remove':  # Используйте elif вместо if, чтобы проверить разные действия
+        elif action == 'remove':
             if cart_item.quantity > 1:
                 cart_item.quantity -= 1
                 cart_item.save()

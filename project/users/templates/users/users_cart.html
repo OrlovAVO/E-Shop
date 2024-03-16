@@ -13,7 +13,7 @@
                         <!-- Закончилась разметка корзины -->
                     </div>
                     {% if carts %}
-                    <a href="">
+                    <a href="{% url 'orders:create_order' %}">
                         Оформить заказ
                     </a>
                     {% endif %}
