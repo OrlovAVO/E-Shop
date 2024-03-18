@@ -1,63 +1,73 @@
 {% extends "basic.html" %}
 {% load static %}
 
+
+
 {% block content %}
-<div class="row">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6 bg-white p-4 mb-4 mx-3 rounded custom-shadow">
-                <h2 class="text-center mb-4">Авторизация</h2>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'site_media/css/styles.css' %}">
+
+
+</head>
+<div>
+    <div >
+        <div>
+            <div>
+                <h2>Авторизация</h2>
                 <form  action="{% url 'user:login' %}" method="post">
                     {% csrf_token %}
                     {% if request.GET.next %}
                         <input type="hidden" name="next" value={{request.GET.next}}>
                     {% endif %}
-                    <div class="mb-3">
-                        <label for="id_username" class="form-label">Имя пользователя</label>
-                        <input type="text" class="form-control"
+                    <div>
+                        <label for="id_username" >Имя пользователя</label>
+                        <input type="text"
                         value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
                         name="username" id="id_username"
                         placeholder="Введите имя пользователя"
                         required>
                     </div>
-                    <div class="mb-3">
-                        <label for="id_password" class="form-label">Пароль</label>
-                        <input type="password" class="form-control" name="password" id="id_password"
+                    <div>
+                        <label for="id_password" >Пароль</label>
+                        <input type="password"  name="password" id="id_password"
                         placeholder="Введите пароль" required>
                     </div>
 
 
                     {% comment %} {% for item in form %}
-                    <div class="mb-3">
-                        <label for="{{ item.id_for_label }}" class="form-label">{{ item.label }}</label>
+                    <div>
+                        <label for="{{ item.id_for_label }}" >{{ item.label }}</label>
                         {{item}}
                     </div>
                     {% endfor %} {% endcomment %}
 
 
-                    {% comment %} <div class="mb-3">
-                        <label for="{{ form.username.id_for_label }}" class="form-label">Имя пользователя</label>
+                    {% comment %} <div>
+                        <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
                         {{form.username}}
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Пароль</label>
+                    <div>
+                        <label for="password" >Пароль</label>
                         {{ form.password }}
                     </div> {% endcomment %}
 
 
-                    {% comment %} <div class="mb-3">
-                        <label for="username" class="form-label">Имя пользователя</label>
-                        <input type="text" class="form-control" id="username" placeholder="Введите ваше имя пользователя" required>
+                    {% comment %} <div>
+                        <label for="username" >Имя пользователя</label>
+                        <input type="text"  id="username" placeholder="Введите ваше имя пользователя" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Пароль</label>
-                        <input type="password" class="form-control" id="password" placeholder="Введите ваш пароль" required>
+                    <div>
+                        <label for="password" >Пароль</label>
+                        <input type="password" id="password" placeholder="Введите ваш пароль" required>
                     </div> {%endcomment%}
 
 
-                    <button type="submit" class="btn btn-dark btn-block">Войти</button>
+                    <button type="submit">Войти</button>
                 </form>
-                <div class="mt-3">
+                <div>
                     <a href="#">Забыли пароль?</a> | <a href="{% url 'users:registration' %}">Создать аккаунт</a>
                 </div>
                 <hr>
@@ -66,3 +76,16 @@
     </div>
 </div>
 {% endblock %}
+
+
+{% block footer %}
+<footer class="footer">
+    <div >
+        <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
+        <li><a href="{% url 'app:about' %}">О нас</a></li>
+        <p>Copyright &copy; 2024 E-Shop</p>
+    </div>
+</footer>
+{% endblock %}
+
+

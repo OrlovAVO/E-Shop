@@ -4,18 +4,25 @@
 
 
 <html lang="en">
+<link rel="stylesheet" href="{% static 'site_media/css/styles.css' %}">
 
 <body>
-    <header>
+    <header class="header">
                     <div class="logo">
-                        <a href="{% url 'app:index' %}" ><img src="{% static 'site_media/icons/e-shop-icon.svg' %}" alt="Logo Icon" width="40" height="40"/></a>
+                        <a href="{% url 'app:index' %}" ><img src="{% static 'site_media/icons/eshop-icon.svg' %}"
+                                                              alt="Logo Icon" width="80" height="80"/></a>
                     </div>
-                    <form role="search" action="{% url 'catalog:search'%}" method="get" >
+                    <div class="shop-info">
+                        <h2>Магазин электротехники - E-Shop</h2>
+                    </div>
+                    <div class="search-bar">
+                    <form class="search-form" role="search" action="{% url 'catalog:search'%}" method="get" >
                         <input type="search" name="q" placeholder="Поиск товара" aria-label="Search">
                         <button type="submit">Поиск</button>
                     </form>
-                        <div class="nav">
-                            <li> <a  href="{% url 'app:delivery' %}">Доставка и оплата</a> </li>
+                    </div>
+                        <div class="nav-links">
+                            <li> <a  href="{% url 'app:delivery' %}" class="delivery-link">Доставка и оплата</a> </li>
                             <li> <a  href="{% url 'users:users_cart'%}">
                                 <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Cart Icon" width="30" height="30"/>
                                  {% load carts_tag %}
@@ -29,26 +36,26 @@
                         </div>
                         {% if not user.is_authenticated %}
                             <li>
-                            <a class="nav_enjoy" href="{% url 'users:login' %}">Войти</a>
+                            <a  href="{% url 'users:login' %}" class="login-link">Войти</a>
                             </li>
                         {% else %}
-                        <li><a href="{% url 'users:profile' %}">Личный кабинет
+                        <li><a href="{% url 'users:profile' %}" class="cabinet-link">Личный кабинет
 
                             ({{ request.user.username }})
 
                             </a>
                             {% if user.is_admin or user.is_staff %}
-                        <li><a href="{% url 'admin:index'%}">Админстративная панель</a></li>
+                        <li><a href="{% url 'admin:index'%}" class="admin-link">Админстративная панель</a></li>
                             {% endif %}
-                        <li><a href="{% url 'users:logout' %}">Выход</a></li>
+                        <li><a href="{% url 'users:logout' %}" class="logout-link">Выход</a></li>
                         {% endif %}
 
     </header>
-    <section>
+    <section class="section">
         <div class="container">
             <!-- Каталог и корзина с фиксированным расположением на странице -->
-            <div>
-                    <ul>
+            <div class="sidebar">
+                    <ul class="category-list">
                         {% tags_categories as categories %}
                         {% for category in categories %}
                         <li><a href="{% url 'catalog:index' category.slug %}">{{category.name}}</a></li>
@@ -60,7 +67,7 @@
         <!-- Контент -->
         <div>
             <div>
-                <div>
+                <div >
                     {% block content %}
 
                     {% endblock %}
@@ -68,9 +75,16 @@
             </div>
         </div>
     </section>
-    {% block footer %}
+{% block footer %}
+    <footer class="footer">
+        <div>
+            <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
+            <li><a href="{% url 'app:about' %}">О нас</a></li>
+            <p>Copyright &copy; 2024 E-Shop</p>
+        </div>
+    </footer>
+{% endblock %}
 
-    {% endblock %}
 
 </body>
 

@@ -79,3 +79,13 @@ profile.html{% extends "basic.html" %}
     </div>
 </div>
 {% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div >
+        <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
+        <li><a href="{% url 'app:about' %}">О нас</a></li>
+        <p>Copyright &copy; 2024 E-Shop</p>
+    </div>
+</footer>
+{% endblock %}

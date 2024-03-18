@@ -1,3 +1,240 @@
-.nav > ul > li {
-  display:inline-block; /* переопределение в строчно-блочный */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #fc8507;
+    color: #fff;
+    padding: 14px 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* Стили для логотипа */
+.logo {
+    display: flex; /* Размещаем элементы в строку */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: flex-start;
+}
+
+/* Стили для текста логотипа */
+.logo h2 {
+    margin: 0; /* Убираем отступы */
+    color: #000000;
+}
+
+/* Стили для ссылки логотипа */
+.logo .logo-link {
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000000; /* Белый цвет текста */
+    font-size: 24px; /* Размер шрифта */
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.logo .logo-link:hover {
+    color: #999; /* Цвет текста при наведении */
+}
+
+/* Стили для кнопки поиска и поля ввода - оставляем без изменений */
+
+/* Стили для кнопки поиска */
+.search-form button {
+    justify-content: flex-end;
+    padding: 10px 20px; /* Увеличиваем отступы в 2 раза */
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    border: none;
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.search-form button:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+}
+
+/* Стили для поля ввода */
+.search-form input[type="search"] {
+    padding: 15px 20px; /* Увеличиваем отступы в 2 раза */
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    border: 2px solid #007bff; /* Устанавливаем цвет рамки */
+    border-radius: 5px; /* Закругляем углы */
+    width: calc(100% - 100px); /* Ширина поля ввода */
+}
+
+.search-form input[type="search"]::placeholder {
+    color: #999; /* Цвет плейсхолдера */
+}
+
+.search-form input[type="search"]:focus {
+    border-color: #0056b3; /* Цвет рамки при фокусе */
+    outline: none; /* Убираем обводку */
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.section {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    flex: 0 0 200px; /* Ширина боковой панели */
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 10px;
+}
+
+.category-list li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.category-list li a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px; /* Уменьшаем вертикальные отступы */
+    text-align: center;
+}
+.footer a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #fff; /* Цвет текста для ссылок */
+}
+
+.footer p {
+    margin: 0; /* Убираем отступы у абзаца */
+}
+
+.footer ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы списка */
+}
+
+.footer li {
+    display: inline-block; /* Размещаем элементы в строку */
+    margin: 0 10px; /* Добавляем небольшие отступы между элементами */
+}
+
+.user-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.user-menu li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.user-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для контейнера */
+.nav-links {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Стили для элементов списка */
+.nav-links li {
+    list-style: none;
+}
+
+/* Стили для ссылок */
+.nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.delivery-link {
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: 20px; /* Увеличение размера шрифта */
+}
+
+.shop-info, .search-bar {
+    margin-left: auto; /* Поле поиска и название магазина будут справа от логотипа */
+    color: #000000;
+}
+
+.cabinet-link {
+    justify-content: flex-end;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px; /* Увеличение размера шрифта */
+}
+.admin-link {
+    justify-content: flex-end;
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px; /* Увеличение размера шрифта */
+}
+
+.login-link {
+    justify-content: flex-end;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Увеличение размера шрифта */
+}
+.logout-link {
+    justify-content: flex-end;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Увеличение размера шрифта */
+}
+
+/* Стили для изображения */
+.nav-links li img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+/* Стили для количества товаров в корзине */
+.cart-quantity {
+    margin-left: 5px;
+    font-weight: bold;
 }

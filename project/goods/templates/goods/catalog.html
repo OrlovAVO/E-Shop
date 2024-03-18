@@ -3,8 +3,15 @@
 {% load tags %}
 
 {% block content %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'site_media/css/styles-catalog-product.css' %}">
 
-<div class="row">
+
+</head>
+
+<div >
     <!-- Форма фильтров -->
     <div>
         <button type="button"
@@ -29,7 +36,7 @@
             <div>
                 <input type="radio" name="order_by" id="flexRadioDefault1" value="default"
                 {% if not request.GET.order_by or request.GET.order_by == 'default' %} checked {% endif %}>
-                <label class="form-check-label" for="flexRadioDefault1">
+                <label  for="flexRadioDefault1">
                     По умолчанию
                 </label>
             </div>
@@ -43,7 +50,7 @@
             <div>
                 <input type="radio" name="order_by" id="flexRadioDefault3" value="-price"
                 {% if request.GET.order_by == '-price' %} checked {% endif %}>
-                <label class="form-check-label" for="flexRadioDefault3">
+                <label for="flexRadioDefault3">
                     Сначала дорогие
                 </label>
             </div>
@@ -62,12 +69,12 @@
                 <img src="{% static 'site_media/icons/image_not_found.jpeg' %}"
                      alt="{{ product.name }}" width="150" height="190">
             {% endif %}
-            <div class="card-body">
+            <div >
                 <a href="{% url 'catalog:product' product.slug %}">
                     <p class="card-title">{{ product.name }}</p>
                 </a>
-                <p class="card-text">{{ product.description }}</p>
-                <p class="product_id">Артикул: {{ product.display_id }}</p>
+                <p >{{ product.description }}</p>
+                <p >Артикул: {{ product.display_id }}</p>
                 <div>
                     <!--Блок цены и скидки-->
                     {% if product.discount %}
@@ -78,8 +85,10 @@
                     <p><strong>{{product.price}} </strong></p>
                     {% endif %}
 
-                    <a href="{% url 'cart:cart_add' product.slug %}" >
-                        <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Catalog Icon"
+                    <a href="{% url 'cart:cart_add' product_slug=product.slug %}" class="btn add-to-cart"
+                        data-product-id="{{ product.id }}">
+                            {% csrf_token %}
+                    <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Catalog Icon"
                             width="32" height="32">
                     </a>
                 </div>
@@ -125,9 +134,11 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; 2024 E-Shop</p>
+    <footer class="footer">
+        <div>
+            <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
+            <li><a href="{% url 'app:about' %}">О нас</a></li>
+            <p>Copyright &copy; 2024 E-Shop</p>
         </div>
-</footer>
+    </footer>
 {% endblock %}
