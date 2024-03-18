@@ -1,32 +1,87 @@
-.container {
-    display: flex;
-}
-
 
 .products-container {
     margin-left: 120px;
-    margin-top: -390px;
-    flex-grow: 1; /* Занимает всю доступную ширину */
+    margin-top: -770px;
+    justify-content: space-between;
 }
-
 .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
 }
 
 .product-item {
-    margin-bottom: 20px; /* Отступ между товарами */
+    width: calc(33.33% - 20px); /* Учитываем отступы между карточками */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    flex-grow: 1; /* Равномерное распределение по контейнеру */
 }
+
+.product-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Высота карточки товара */
+    overflow: hidden; /* Скрываем лишнее содержимое изображения */
+}
+
+.product-image img {
+    width: auto;
+    height: 100%; /* Подгоняем изображение по высоте карточки товара */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-details {
+    padding: 20px;
+    position: relative; /* Для позиционирования кнопки */
+    flex-grow: 1; /* Растягиваем блок с деталями товара по вертикали */
+}
+
+.product-details .card-title {
+    margin-bottom: 10px;
+}
+
+.product-price p {
+    margin: 5px 0;
+}
+
+.btn.add-to-cart {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fc8507;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn.add-to-cart img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
 
 .pagination-buttons ul {
     display: flex;
+    margin-left: 800px; /* Отступ слева */
     justify-content: center; /* Центрируем кнопки */
     list-style: none; /* Убираем маркеры списка */
-    flex-wrap: nowrap; /* Запрещаем перенос элементов на новую строку */
+    padding: 0; /* Убираем отступы */
+    text-align: center; /* Центрируем содержимое по центру */
 }
 
 .pagination-buttons ul li {
     margin: 0 5px; /* Расстояние между кнопками */
+    list-style: none; /* Убираем маркеры списка */
 }
 
 .pagination-buttons ul li a {
@@ -38,15 +93,109 @@
     text-decoration: none; /* Убираем подчеркивание при наведении */
 }
 
-.section {
-    padding: 50px;
-    display: flex;
-}
 
-.pagination {
-    margin-top: 170px; /* Отступ сверху */
+
+.filters {
+    margin-top: 440px; /* Отступ сверху */
     margin-right: 20px; /* Отступ справа */
-    margin-left: -100px; /* Отступ слева */
+    margin-left: -170px; /* Отступ слева */
 }
 
+.section {
+    display: flex; /* Располагаем элементы внутри блока товара в ряд */
+    margin-bottom: 20px; /* Добавляем отступ снизу между товарами */
+}
+
+.section > div {
+    padding: 10px; /* Добавляем внутренний отступ для каждого блока внутри .section */
+}
+
+.section img {
+    max-width: 150px; /* Устанавливаем максимальную ширину изображения */
+    height: auto; /* Поддерживаем пропорции */
+}
+
+.section p {
+    margin-bottom: 5px; /* Отступ снизу для параграфов */
+}
+
+.section h5 {
+    margin-top: 0; /* Убираем верхний отступ у заголовка */
+}
+
+.section a {
+    display: inline-block; /* Превращаем ссылку в блочный элемент */
+    padding: 8px 12px; /* Добавляем внутренний отступ */
+    background-color: #ddd; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругляем углы */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.section a:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+}
+
+
+
+
+
+.filters {
+    max-width: 210px; /* Ограничиваем ширину контейнера */
+    background-color: #f5f5f5; /* Цвет фона блока фильтров */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters button {
+    padding: 10px 20px;
+    background-color: #ddd; /* Цвет кнопок */
+    color: #333; /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+    background-color: #ccc; /* Цвет кнопок при наведении */
+}
+
+.filters form {
+    margin-top: 20px;
+}
+
+.filters form div {
+    margin-bottom: 10px;
+}
+
+.filters form label {
+    margin-left: 10px;
+}
+
+.filters form input[type="checkbox"],
+.filters form input[type="radio"] {
+    margin-right: 5px;
+}
+
+.filters form p {
+    margin-bottom: 5px;
+}
+
+.filters form button {
+    display: block; /* Делаем кнопку блочным элементом */
+    width: 100%; /* Занимает всю доступную ширину контейнера */
+    padding: 10px 20px;
+    background-color: #007bff; /* Цвет кнопки "Применить" */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filters form button:hover {
+    background-color: #0056b3; /* Цвет кнопки "Применить" при наведении */
 }

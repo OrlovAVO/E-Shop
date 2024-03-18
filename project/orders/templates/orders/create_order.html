@@ -3,63 +3,62 @@
 {% load carts_tag %}
 
 {% block content %}
-<div>
     <div>
-        <h3>Выбранные товары</h3>
-        <div id="cart-items-container">
-            <!-- Разметка корзины -->
-            {% user_carts request as carts %}
-
-            {% include "carts/includes/cart.html" %}
-                {% if messages %}
-
-    <ul>
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </li>
-        {% endfor %}
-    </ul>
-
-    {% endif %}
-            <!-- Закончилась разметка корзины -->
-        </div>
-    </div>
-    <!-- Детали заказа -->
-    <div>
-        <h3 >Детали заказа</h3>
         <div>
+            <h3>Выбранные товары</h3>
+            <div id="cart-items-container">
+                <!-- Разметка корзины -->
+                {% user_carts request as carts %}
+
+                {% include "carts/includes/cart.html" %}
+                    {% if messages %}
+
+        <ul>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </li>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+                <!-- Закончилась разметка корзины -->
+            </div>
+        </div>
+        <!-- Детали заказа -->
+        <div>
+            <h3 >Детали заказа</h3>
             <div>
-                <form action="{% url 'orders:create_order' %}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <div>
+                <div>
+                    <form action="{% url 'orders:create_order' %}" method="post" class="order-form">
+                        {% csrf_token %}
+                        <div class="form-group">
                             <label for="id_first_name" class="form-label">Имя:</label>
                             <input type="text"  id="id_first_name"
                                 value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
-                                name="first_name" required>
+                                name="first_name" required class="form-control">
                             {% if form.first_name.errors %}
-                                <div> {{form.first_name.errors}}</div>
+                                <div class="error"> {{form.first_name.errors}}</div>
                             {% endif %}
                         </div>
-                        <div>
-                            <label for="id_last_name" >Фамилия:</label>
+                        <div class="form-group">
+                            <label for="id_last_name" class="form-label">Фамилия:</label>
                             <input type="text"  id="id_last_name" name="last_name"
-                            value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
-                            required>
+                                value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                                required class="form-control">
                             {% if form.last_name.errors %}
-                                <div>{{form.last_name.errors}}</div>
+                                <div class="error">{{form.last_name.errors}}</div>
                             {% endif %}
                         </div>
-                        <div>
-                            <label for="id_phone_number" >Номер телефона(без кода страны):</label>
+                        <div class="form-group">
+                            <label for="id_phone_number" class="form-label">Номер телефона(без кода страны):</label>
                             <input type="text" class="form-control" id="id_phone_number" name="phone_number"
                                 value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
                                 placeholder="Введите 10 цифр номера"
                                 required>
                             {% if form.phone_number.errors %}
-                                <div >{{form.phone_number.errors}}</div>
+                                <div class="error">{{form.phone_number.errors}}</div>
                             {% endif %}
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label for="delivery" class="form-label">Способ доставки: </label>
                             <div>
                                 <input type="radio" name="requires_delivery"
@@ -72,41 +71,37 @@
                                 <label class="form-check-label" for="id_requires_delivery">Самовывоз</label>
                             </div>
                         </div>
-                        <div  id="deliveryAddressField">
-                            <label for="id_delivery_address" >Адрес
-                                доставки:</label>
-                            <textarea  id="id_delivery_address"
+                        <div class="form-group" id="deliveryAddressField">
+                            <label for="id_delivery_address" class="form-label">Адрес доставки:</label>
+                            <textarea id="id_delivery_address"
                                 value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
-                                name="delivery_address" rows="2"></textarea>
+                                name="delivery_address" rows="2" class="form-control"></textarea>
                             {% if form.delivery_address.errors %}
-                                <div>{{form.delivery_address.errors}}</div>
+                                <div class="error">{{form.delivery_address.errors}}</div>
                             {% endif %}
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label class="form-label">Способ оплаты: </label>
                             <div>
-                                <input  type="radio" name="payment_on_get"
+                                <input type="radio" name="payment_on_get"
                                     id="id_payment_on_get" value="0" checked>
-                                <label for="id_payment_on_get">Оплата
-                                    картой</label>
+                                <label for="id_payment_on_get">Оплата картой</label>
                             </div>
                             <div>
                                 <input type="radio" name="payment_on_get"
                                     id="id_payment_on_get" value="1">
-                                <labelfor="id_payment_on_get">Наличными/картой
-                                    при получении</label>
+                                <label for="id_payment_on_get">Наличными/картой при получении</label>
                                 {% if form.payment_on_get.errors %}
-                                    <div >{{form.payment_on_get.errors}}</div>
+                                    <div class="error">{{form.payment_on_get.errors}}</div>
                                 {% endif %}
                             </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Оформить заказ</button>
-                </form>
+                        <button type="submit" class="btn btn-dark">Оформить заказ</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock  %}
 
 

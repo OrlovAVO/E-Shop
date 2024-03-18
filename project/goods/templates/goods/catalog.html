@@ -6,14 +6,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'site_media/css/styles-catalog-product.css' %}">
+
 
 
 </head>
 
 <div>
     <!-- Форма фильтров -->
-    <div class="pagination">
+    <div class="filters">
         <button type="button"
             aria-expanded="false">
             Фильтры
@@ -60,76 +60,64 @@
 </div>
 
 <div class="products-container">
-        <ul class="product-list">
-{% for product in goods %}
-    <!-- Карта товара -->
+    <ul class="product-list">
+        {% for product in goods %}
             <li class="product-item">
-    <div class="product-card">
-        <div>
-            {% if product.image  %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150" height="190">
-            {% else %}
-                <img src="{% static 'site_media/icons/image_not_found.jpeg' %}"
-                     alt="{{ product.name }}" width="150" height="190">
-            {% endif %}
-            <div >
-                <a href="{% url 'catalog:product' product.slug %}">
-                    <p class="card-title">{{ product.name }}</p>
-                </a>
-                <p >{{ product.description }}</p>
-                <p >Артикул: {{ product.display_id }}</p>
-                <div>
-                    <!--Блок цены и скидки-->
-                    {% if product.discount %}
-                        <p><s>{{ product.price }}</s></p>
-                        <p><strong>{{ product.sell_price }}</strong></p>
-                        <span>Скидка: {{ product.discount }}%</span>
-                    {% else %}
-                    <p><strong>{{product.price}} </strong></p>
-                    {% endif %}
-
-                    <a href="{% url 'cart:cart_add' product_slug=product.slug %}" class="btn add-to-cart"
-                        data-product-id="{{ product.id }}">
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if product.image  %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img src="{% static 'site_media/icons/image_not_found.jpeg' %}" alt="{{ product.name }}">
+                        {% endif %}
+                    </div>
+                    <div class="product-details">
+                        <a href="{% url 'catalog:product' product.slug %}">
+                            <p class="card-title">{{ product.name }}</p>
+                        </a>
+                        <p>{{ product.description }}</p>
+                        <p>Артикул: {{ product.display_id }}</p>
+                        <div class="product-price">
+                            {% if product.discount %}
+                                <p><s>{{ product.price }}</s></p>
+                                <p><strong>{{ product.sell_price }}</strong></p>
+                                <span>Скидка: {{ product.discount }}%</span>
+                            {% else %}
+                                <p><strong>{{product.price}} </strong></p>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'cart:cart_add' product_slug=product.slug %}" class="btn add-to-cart"
+                           data-product-id="{{ product.id }}">
                             {% csrf_token %}
-                    <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Catalog Icon"
-                            width="32" height="32">
-                    </a>
+                            <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Catalog Icon"
+                                 width="16" height="16">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-                </li>
-{% endfor %}
-            </ul>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 
 
 <!-- Пагинация -->
 <nav class="pagination-buttons" aria-label="Page navigation example">
     <ul>
-        <div>
-            <li class="page-item {% if not goods.has_previous %} disabled {% endif %}">
-              <a class="page-link" href="{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}
-              ?
-              {% endif %}
-              ">Предыдущая</a>
-            </li>
+        <li class="page-item {% if not goods.has_previous %} disabled {% endif %}">
+            <a class="page-link" href="{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}?{% endif %}">Предыдущая</a>
+        </li>
 
-            {% for page in goods.paginator.page_range %}
+        {% for page in goods.paginator.page_range %}
             {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
                 <li class="page-item {% if goods.number == page %} activate {% endif %}">
                     <a class="page-link" href="?{% change_params page=page %}">{{page}}</a>
                 </li>
             {% endif %}
-            {% endfor %}
+        {% endfor %}
 
-            <li class="page-item {% if not goods.has_next %} disabled {% endif %}">
-              <a class="page-link" href="{% if goods.has_next%}?
-              {% change_params page=goods.next_page_number %}{% else %}?
-              {% endif %}
-              ">Следующая</a>
-            </li>
-        </div>
+        <li class="page-item {% if not goods.has_next %} disabled {% endif %}">
+            <a class="page-link" href="{% if goods.has_next%}?{% change_params page=goods.next_page_number %}{% else %}?{% endif %}">Следующая</a>
+        </li>
     </ul>
 </nav>
 

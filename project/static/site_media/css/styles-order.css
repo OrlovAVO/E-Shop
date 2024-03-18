@@ -1,0 +1,85 @@
+/* Стили для контейнера заказов */
+.order-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Стили для блока с товарами в корзине */
+.cart-items {
+    flex-basis: 60%; /* Ширина блока с товарами */
+}
+
+/* Стили для формы оформления заказа */
+.order-details {
+    flex-basis: 35%; /* Ширина блока с деталями заказа */
+}
+
+.order-form {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.error {
+    color: red;
+}
+
+.btn-dark {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
+
+/* Стили для футера */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer p {
+    margin-top: 10px;
+}

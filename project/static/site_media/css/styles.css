@@ -40,9 +40,25 @@ body {
     color: #999; /* Цвет текста при наведении */
 }
 
-/* Стили для кнопки поиска */
+.search-form {
+    margin-top: 10px; /* Отступ слева */
+    margin-left: 10px; /* Отступ слева */
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="search"] {
+    flex: 1;
+    padding: 10px 10px; /* Увеличиваем отступы в 2 раза */
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    border: 2px solid #007bff; /* Устанавливаем цвет рамки */
+    border-radius: 5px; /* Закругляем углы */
+    width: calc(80% - 60px);
+}
+
 .search-form button {
-    margin-top: 10px; /* Отступ сверху */
+    white-space: nowrap;
+
     margin-left: 10px; /* Отступ слева */
     padding: 10px 20px; /* Увеличиваем отступы в 2 раза */
     font-size: 16px; /* Увеличиваем размер шрифта */
@@ -50,41 +66,9 @@ body {
     background-color: #007bff; /* Цвет фона кнопки */
     color: #fff; /* Цвет текста кнопки */
     cursor: pointer;
-
     transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
     float: right; /* Размещаем кнопку справа */
 }
-
-.search-form button:hover {
-    background-color: #0056b3; /* Цвет фона кнопки при наведении */
-}
-
-/* Стили для поля ввода */
-
-.search-bar {
-    display: flex;
-    align-items: center;
-}
-
-.search-form input[type="search"] {
-    margin-top: 10px; /* Отступ сверху */
-    padding: 15px 20px; /* Увеличиваем отступы в 2 раза */
-    font-size: 16px; /* Увеличиваем размер шрифта */
-    border: 2px solid #007bff; /* Устанавливаем цвет рамки */
-    border-radius: 5px; /* Закругляем углы */
-    width: calc(100% - 80px); /* Ширина поля ввода (в 3 раза больше) */
-    float: right; /* Размещаем поле ввода справа */
-}
-
-.search-form input[type="search"]::placeholder {
-    color: #999; /* Цвет плейсхолдера */
-}
-
-.search-form input[type="search"]:focus {
-    border-color: #0056b3; /* Цвет рамки при фокусе */
-    outline: none; /* Убираем обводку */
-}
-
 
 .nav {
     display: flex;
@@ -105,30 +89,33 @@ body {
     display: flex;
     gap: 20px;
 }
-
 .sidebar {
-    float: left;
-    flex: 0 0 200px; /* Ширина боковой панели */
-    width: 20%;
+    max-width: 210px; /* Ограничиваем ширину контейнера */
+    background-color: #f4f4f4; /* Цвет фона сайдбара */
+    padding: 20px; /* Внутренний отступ */
+    border-radius: 5px; /* Закругление углов */
 }
 
 .category-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренний отступ */
 }
 
 .category-list li {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Отступ между категориями */
 }
 
 .category-list li a {
-    color: #000000;
-    text-decoration: none;
+    display: block; /* Превращаем ссылку в блочный элемент */
+    padding: 10px; /* Внутренний отступ */
+    border: 1px solid #ddd; /* Устанавливаем рамку */
+    border-radius: 5px; /* Закругляем углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
 }
 
 .category-list li a:hover {
-    text-decoration: underline;
+    background-color: #ddd; /* Цвет фона при наведении */
 }
 
 .footer {
@@ -312,9 +299,33 @@ body {
     font-size: 20px; /* Увеличение размера шрифта */
     font-weight: bold; /* Жирный шрифт */
     background-color: #f5f5f5; /* Цвет фона */
-    border: 4px solid #007bff; /* Граница */
+    border: 4px solid #ddd; /* Граница */
     border-radius: 10px; /* Скругление углов */
     width: 20px; /* Задает ширину рамки */
     text-align: center; /* Выравнивание текста по центру */
 }
+}
+
+
+
+.product-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренний отступ */
+}
+
+.product-list li {
+    margin-bottom: 10px; /* Отступ между товарами */
+}
+
+.product-list li a {
+    display: block; /* Превращаем ссылку в блочный элемент */
+    padding: 10px; /* Добавляем внутренний отступ */
+    border: 1px solid #ddd; /* Устанавливаем рамку */
+    border-radius: 5px; /* Закругляем углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+}
+
+.product-list li a:hover {
+    background-color: #f4f4f4; /* Цвет фона при наведении */
 }

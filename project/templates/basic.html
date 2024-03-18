@@ -5,7 +5,11 @@
 
 <html lang="en">
 <link rel="stylesheet" href="{% static 'site_media/css/styles.css' %}">
-
+<link rel="stylesheet" href="{% static 'site_media/css/styles_profile.css' %}">
+<link rel="stylesheet" href="{% static 'site_media/css/styles_users.css' %}">
+<link rel="stylesheet" href="{% static 'site_media/css/styles-catalog-product.css' %}">
+<link rel="stylesheet" href="{% static 'site_media/css/styles-cart.css' %}">
+<link rel="stylesheet" href="{% static 'site_media/css/styles-order.css' %}">
 <body>
     <header class="header">
                     <div class="logo">
@@ -24,7 +28,7 @@
                     <div class="nav-links">
                         <li><a href="{% url 'users:users_cart'%}" class="cart-button">
                                 <span class="cart-icon">
-                                    <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Cart Icon" width="50" height="50"/>
+                                    <img src="{% static 'site_media/icons/cart-shopping.svg' %}" href="{% url 'users:users_cart'%}" alt="Cart Icon" width="50" height="50"/>
                                 </span>
                                 <span class="cart-text">
                                     {% load carts_tag %}
@@ -63,7 +67,7 @@
         <!-- Контент -->
         <div>
             <div >
-                <div class="content" >
+                <div class="product-list" >
                     {% block content %}
 
                     {% endblock %}

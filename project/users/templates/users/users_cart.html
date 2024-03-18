@@ -6,28 +6,18 @@
         <div>
             <div>
                 <div>
-                    <h3>Корзина </h3>
+                    <h1 class="cart-info">Корзина </h1>
                     <div>
                         <!-- Разметка корзины -->
                         {% include 'carts/includes/cart.html' %}
                         <!-- Закончилась разметка корзины -->
                     </div>
                     {% if carts %}
-                    <a href="{% url 'orders:create_order' %}">
+                    <a class="make-order-bttn" href="{% url 'orders:create_order' %}">
                         Оформить заказ
                     </a>
                     {% endif %}
                 </div>
             </div>
         </div>
-{% endblock %}
-
-{% block footer %}
-<footer class="footer">
-    <div >
-        <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
-        <li><a href="{% url 'app:about' %}">О нас</a></li>
-        <p>Copyright &copy; 2024 E-Shop</p>
-    </div>
-</footer>
 {% endblock %}

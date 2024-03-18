@@ -61,6 +61,8 @@
 
 
 .registration-container {
+    margin-left: 600px;
+    margin-top: -200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,6 +75,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+
 }
 
 .registration-form h2 {
@@ -83,10 +86,12 @@
 .registration-form form {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Выравнивание элементов по левой стороне */
 }
 
 .registration-form label {
     margin-bottom: 5px;
+    width: 100%; /* Ширина метки занимает всю доступную ширину */
 }
 
 .registration-form input {
@@ -95,11 +100,14 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
+    width: 100%; /* Ширина поля ввода занимает всю доступную ширину */
 }
 
 .registration-form button {
+    display: block; /* Делаем кнопку блочным элементом */
+    width: 100%; /* Занимает всю доступную ширину контейнера */
     padding: 10px;
-    background-color: #007bff;
+    background-color: #fc8507;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -114,4 +122,9 @@
 .registration-form div {
     text-align: center;
     margin-top: 10px;
+}
+
+
+.make-order-bttn {
+    margin-left: 730 ;
 }

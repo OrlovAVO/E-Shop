@@ -5,55 +5,49 @@
 {% block content %}
     <div>
         {% for cart in carts %}
-            <div>
+            <div class="cart-item">
                 <h5>{{ cart.product.name }}</h5>
-            </div>
-            <ul>
-                <li>
-                    <div>
+                <ul>
+                    <li>
                         <div>
                             <div>
-                                <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="action" value="remove">
-                                    <button type="submit">-</button>
-                                </form>
-                                <input type="text" value="{{ cart.quantity }}" readonly>
-                                <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="action" value="add">
-                                    <button type="submit">+</button>
-                                </form>
-                                                            </div>
+                                <div class="quantity-controls">
+                                    <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action" value="remove">
+                                        <button type="submit">-</button>
+                                    </form>
+                                    <input type="text" value="{{ cart.quantity }}" readonly>
+                                    <form action="{% url 'cart:cart_change' product_slug=cart.product.slug %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action" value="add">
+                                        <button type="submit">+</button>
+                                    </form>
+                                </div>
                         </div>
-                        <div>
-                            <p>x {{ cart.product.sell_price }} ₽ = </p>
+                            <div class="quantity-controls .additional-info">
+                            <div>
+                                <p>x {{ cart.product.sell_price }} ₽ = </p>
+                            </div>
+                            <div><strong> {{ cart.products_price }} ₽</strong></div>
+                            <div>
+                                <a href="{% url 'cart:cart_remove' cart.id %}" data-cart-id="">
+                                    <img src="{% static 'site_media/icons/delete_icon.svg' %}"
+                                         alt="Delete Icon" width="16" height="16">
+                                </a>
+                            </div>
                         </div>
-                        <div><strong> {{ cart.products_price }} ₽</strong> </div>
-                        <div>
-                            <a href="{% url 'cart:cart_remove' cart.id %}" data-cart-id="">
-                                <img src="{% static 'site_media/icons/delete_icon.svg' %}"
-                                    alt="Catalog Icon" width="16" height="16">
-                            </a>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         {% endfor %}
     </div>
-    <div>
+    <div class="cart-total">
         <div>
-            <p>Итого <strong>{{ carts.total_quantity }}</strong> товар(-а, -ов) на сумму: <strong> {{ carts.total_price }} ₽</strong> </p>
+            <p>Итого <strong>{{ carts.total_quantity }}</strong> товар(-а, -ов) на сумму: <strong> {{ carts.total_price }} ₽</strong></p>
         </div>
     </div>
 {% endblock %}
 
-{% block footer %}
-    <footer class="footer">
-        <div>
-            <li><a href="{% url 'app:contacts' %}">Контактная информация</a></li>
-            <li><a href="{% url 'app:about' %}">О нас</a></li>
-            <p>Copyright &copy; 2024 E-Shop</p>
-        </div>
-    </footer>
-{% endblock %}
+
