@@ -8,71 +8,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'site_media/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'site_media/css/styles_users.css' %}">
 
 
 </head>
-<div>
-    <div >
-        <div>
+<div class="auth-container">
+    <div class="auth-form">
+        <h2>Авторизация</h2>
+        <form action="{% url 'user:login' %}" method="post">
+            {% csrf_token %}
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value={{request.GET.next}}>
+            {% endif %}
             <div>
-                <h2>Авторизация</h2>
-                <form  action="{% url 'user:login' %}" method="post">
-                    {% csrf_token %}
-                    {% if request.GET.next %}
-                        <input type="hidden" name="next" value={{request.GET.next}}>
-                    {% endif %}
-                    <div>
-                        <label for="id_username" >Имя пользователя</label>
-                        <input type="text"
-                        value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-                        name="username" id="id_username"
-                        placeholder="Введите имя пользователя"
-                        required>
-                    </div>
-                    <div>
-                        <label for="id_password" >Пароль</label>
-                        <input type="password"  name="password" id="id_password"
-                        placeholder="Введите пароль" required>
-                    </div>
-
-
-                    {% comment %} {% for item in form %}
-                    <div>
-                        <label for="{{ item.id_for_label }}" >{{ item.label }}</label>
-                        {{item}}
-                    </div>
-                    {% endfor %} {% endcomment %}
-
-
-                    {% comment %} <div>
-                        <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
-                        {{form.username}}
-                    </div>
-                    <div>
-                        <label for="password" >Пароль</label>
-                        {{ form.password }}
-                    </div> {% endcomment %}
-
-
-                    {% comment %} <div>
-                        <label for="username" >Имя пользователя</label>
-                        <input type="text"  id="username" placeholder="Введите ваше имя пользователя" required>
-                    </div>
-                    <div>
-                        <label for="password" >Пароль</label>
-                        <input type="password" id="password" placeholder="Введите ваш пароль" required>
-                    </div> {%endcomment%}
-
-
-                    <button type="submit">Войти</button>
-                </form>
-                <div>
-                    <a href="#">Забыли пароль?</a> | <a href="{% url 'users:registration' %}">Создать аккаунт</a>
-                </div>
-                <hr>
+                <label for="id_username">Имя пользователя:</label>
+                <input type="text" name="username" id="id_username" placeholder="Введите имя пользователя" required>
             </div>
+            <div>
+                <label for="id_password">Пароль:</label>
+                <input type="password" name="password" id="id_password" placeholder="Введите пароль" required>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+        <div>
+            <a href="#">Забыли пароль?</a> | <a href="{% url 'users:registration' %}">Зарегистрироваться</a>
         </div>
+        <hr>
     </div>
 </div>
 {% endblock %}

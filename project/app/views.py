@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 
@@ -36,3 +37,7 @@ def contacts(request):
         'text_on_page': 'Контакты'
     }
     return render(request, 'app/contacts.html', context)
+
+
+def home(request):
+    return HttpResponseRedirect('/catalog/vse-tovary/')

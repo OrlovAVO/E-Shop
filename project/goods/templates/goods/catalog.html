@@ -11,9 +11,9 @@
 
 </head>
 
-<div >
+<div>
     <!-- Форма фильтров -->
-    <div>
+    <div class="pagination">
         <button type="button"
             aria-expanded="false">
             Фильтры
@@ -57,11 +57,14 @@
             <button type="submit">Применить</button>
         </form>
     </div>
+</div>
 
-
+<div class="products-container">
+        <ul class="product-list">
 {% for product in goods %}
     <!-- Карта товара -->
-    <div>
+            <li class="product-item">
+    <div class="product-card">
         <div>
             {% if product.image  %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150" height="190">
@@ -95,11 +98,14 @@
             </div>
         </div>
     </div>
+                </li>
 {% endfor %}
-
+            </ul>
 </div>
+
+
 <!-- Пагинация -->
-<nav aria-label="Page navigation example">
+<nav class="pagination-buttons" aria-label="Page navigation example">
     <ul>
         <div>
             <li class="page-item {% if not goods.has_previous %} disabled {% endif %}">

@@ -13,7 +13,7 @@
                                                               alt="Logo Icon" width="80" height="80"/></a>
                     </div>
                     <div class="shop-info">
-                        <h2>Магазин электротехники - E-Shop</h2>
+                        <h2> Магазин электротехники - E-Shop </h2>
                     </div>
                     <div class="search-bar">
                     <form class="search-form" role="search" action="{% url 'catalog:search'%}" method="get" >
@@ -21,39 +21,35 @@
                         <button type="submit">Поиск</button>
                     </form>
                     </div>
-                        <div class="nav-links">
-                            <li> <a  href="{% url 'app:delivery' %}" class="delivery-link">Доставка и оплата</a> </li>
-                            <li> <a  href="{% url 'users:users_cart'%}">
-                                <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Cart Icon" width="30" height="30"/>
-                                 {% load carts_tag %}
-                                 {% user_carts request as carts %}
-                                     {{ carts.total_quantity }}
-
-                                    </a>
-                            </li>
-
-
-                        </div>
-                        {% if not user.is_authenticated %}
-                            <li>
-                            <a  href="{% url 'users:login' %}" class="login-link">Войти</a>
-                            </li>
-                        {% else %}
-                        <li><a href="{% url 'users:profile' %}" class="cabinet-link">Личный кабинет
-
-                            ({{ request.user.username }})
-
+                    <div class="nav-links">
+                        <li><a href="{% url 'users:users_cart'%}" class="cart-button">
+                                <span class="cart-icon">
+                                    <img src="{% static 'site_media/icons/cart-shopping.svg' %}" alt="Cart Icon" width="50" height="50"/>
+                                </span>
+                                <span class="cart-text">
+                                    {% load carts_tag %}
+                                    {% user_carts request as carts %}
+                                    {{ carts.total_quantity }}
+                                </span>
                             </a>
-                            {% if user.is_admin or user.is_staff %}
-                        <li><a href="{% url 'admin:index'%}" class="admin-link">Админстративная панель</a></li>
-                            {% endif %}
-                        <li><a href="{% url 'users:logout' %}" class="logout-link">Выход</a></li>
+                        </li>
+                    </div>
+                    {% if not user.is_authenticated %}
+                        <li>
+                        <a  href="{% url 'users:login' %}" class="login-link">Войти</a>
+                        </li>
+                    {% else %}
+                    <li><a href="{% url 'users:profile' %}" class="cabinet-link">Личный кабинет({{request.user.username}})</a></li>
+                        {% if user.is_admin or user.is_staff %}
+                    <li><a href="{% url 'admin:index'%}" class="admin-link">Админ панель</a></li>
                         {% endif %}
+                    <li><a href="{% url 'users:logout' %}" class="logout-link">Выход</a></li>
+                    {% endif %}
 
     </header>
     <section class="section">
         <div class="container">
-            <!-- Каталог и корзина с фиксированным расположением на странице -->
+            <!-- Каталог-->
             <div class="sidebar">
                     <ul class="category-list">
                         {% tags_categories as categories %}
@@ -66,8 +62,8 @@
             </div>
         <!-- Контент -->
         <div>
-            <div>
-                <div >
+            <div >
+                <div class="content" >
                     {% block content %}
 
                     {% endblock %}
